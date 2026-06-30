@@ -186,7 +186,7 @@ end
 
 local function enableExpander()
     expanderEnabled = true
-    print("🔴 Other Players Hitbox Expander ВКЛ | Размер:", size)
+    print("🔴 Other Players Hitbox Expander ON | Размер:", size)
     
     -- Обновление каждые 0.2 секунды
     table.insert(connections, RunService.Heartbeat:Connect(function()
@@ -212,7 +212,7 @@ local function disableExpander()
     for _, c in pairs(connections) do c:Disconnect() end
     connections = {}
     resetAll()
-    print("🔴 Other Players Hitbox Expander ВЫКЛ")
+    print("🔴 Other Players Hitbox Expander OFF")
 end
 
 -- Меню
@@ -256,7 +256,7 @@ local off = Instance.new("TextButton", frame)
 off.Size = UDim2.new(0.9,0,0,50)
 off.Position = UDim2.new(0.05,0,0.78,0)
 off.BackgroundColor3 = Color3.fromRGB(20,20,20)
-off.Text = "ВЫКЛЮЧИТЬ"
+off.Text = "OFF"
 off.TextColor3 = Color3.new(1, 0.3, 0.3)
 off.MouseButton1Click:Connect(disableExpander)
 
