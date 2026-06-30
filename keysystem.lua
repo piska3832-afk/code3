@@ -1,5 +1,5 @@
 -- =============================================
--- Luna Key System
+-- Luna Key System (с нормальной проверкой)
 -- =============================================
 
 local Players = game:GetService("Players")
@@ -8,8 +8,25 @@ local LocalPlayer = Players.LocalPlayer
 
 print("🌙 Luna Key System loaded.")
 
+-- ===== СПИСОК РАБОЧИХ КЛЮЧЕЙ =====
+local ValidKeys = {
+     "piska382-afk",
+    -- Добавляй сюда новые ключи
+}
+
+local function CheckKey(key)
+    for _, valid in pairs(ValidKeys) do
+        if key == valid then
+            print("✅ Key accepted!")
+            return true
+        end
+    end
+    warn("❌ Invalid key!")
+    return false
+end
+
 local function GetKeyLink()
-    return "https://link-target.net/4010771/L8DaJDxf3Uo3"
+    return "https://link-center.net/4010771/05FsCDHeIxHd"
 end
 
 local sg = Instance.new("ScreenGui", LocalPlayer.PlayerGui)
@@ -63,12 +80,10 @@ getKeyBtn.MouseButton1Click:Connect(function()
 end)
 
 submitBtn.MouseButton1Click:Connect(function()
-    if #input.Text >= 8 then
-        print("✅ Key accepted!")
+    if CheckKey(input.Text) then
+        print("✅ Access granted!")
         sg:Destroy()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/piska382-afk/code3/main/main.lua"))()
-    else
-        warn("❌ Invalid key!")
     end
 end)
 
