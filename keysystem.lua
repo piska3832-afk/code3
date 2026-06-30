@@ -83,7 +83,7 @@ submitBtn.MouseButton1Click:Connect(function()
     if CheckKey(input.Text) then
         print("✅ Access granted!")
         sg:Destroy()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/piska382-afk/code3/main/main.lua"))()
+        loadstring(game:HttpGet("https://github.com/piska3832-afk/code3/raw/refs/heads/main/main.lua"))()
     end
 end)
 
